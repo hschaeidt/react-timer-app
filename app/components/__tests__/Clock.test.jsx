@@ -1,13 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import expect from 'expect'
 import $ from 'jquery'
 import TestUtils from 'react-addons-test-utils'
 import Clock from '../Clock'
 
 describe('<Clock />', () => {
   it('should exist', () => {
-    expect(Clock).toExist()
+    expect(Clock).toBeDefined()
   })
 
   describe('render', () => {
