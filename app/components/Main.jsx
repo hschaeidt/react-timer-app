@@ -1,15 +1,21 @@
-import React from 'react'
-import Navigation from './Navigation'
+import React from 'react';
+import Navigation from './Navigation';
 
-export default (props) => (
+const Main = ({ children }) => (
   <div>
     <div>
       <div>
         <Navigation />
         <div className="column small-centered medium-6 large-4">
-          {props.children}
+          {children}
         </div>
       </div>
     </div>
   </div>
-)
+);
+
+Main.propTypes = {
+  children: React.PropTypes.element,
+};
+
+export default Main;

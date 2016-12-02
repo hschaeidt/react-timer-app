@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link, IndexLink} from 'react-router'
+import React from 'react';
+import { Link, IndexLink } from 'react-router';
 
 export default () => (
   <div className="top-bar">
@@ -20,4 +20,4 @@ export default () => (
       </ul>
     </div>
   </div>
-)
+);

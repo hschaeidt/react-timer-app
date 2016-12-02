@@ -1,32 +1,32 @@
-import React from 'react'
-import Clock from './Clock'
-import CountdownForm from './CountdownForm'
+import React from 'react';
+import Clock from './Clock';
+import CountdownForm from './CountdownForm';
 
 export default class Countdown extends React.Component {
-  state = {
-    count: 0,
-  }
-
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.handleSetCountdown = this.handleSetCountdown.bind(this)
+    this.state = {
+      count: 0,
+    };
+
+    this.handleSetCountdown = this.handleSetCountdown.bind(this);
   }
 
   handleSetCountdown(seconds) {
     this.setState({
       count: seconds,
-    })
+    });
   }
 
   render() {
-    const {count} = this.state
+    const { count } = this.state;
 
     return (
       <div>
-        <Clock totalSeconds={count}/>
-        <CountdownForm onSetCountdown={this.handleSetCountdown}/>
+        <Clock totalSeconds={count} />
+        <CountdownForm onSetCountdown={this.handleSetCountdown} />
       </div>
-    )
+    );
   }
 }
