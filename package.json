@@ -4,7 +4,7 @@
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "node $NODE_DEBUG_OPTION ./node_modules/.bin/jest --runInBand",
     "start": "NODE_ENV=development webpack-dev-server --content-base public/ --config webpack.dev.config.js",
     "build": "NODE_ENV=production webpack -p --config webpack.prod.config.js"
   },
