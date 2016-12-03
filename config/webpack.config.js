@@ -40,6 +40,10 @@ module.exports = {
         test: /\.css$/,
       },
       {
+        loader: 'json-loader',
+        test: /\.json$/,
+      },
+      {
         loader: 'style-loader!css-loader!sass-loader',
         test: /\.scss$/,
         exclude: /(node_modules|bower_components)/,
