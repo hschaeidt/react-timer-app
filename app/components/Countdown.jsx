@@ -19,6 +19,7 @@ export default class Countdown extends React.Component {
     };
 
     this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
     this.handleSetCountdown = this.handleSetCountdown.bind(this);
     this.handleStatusChange = this.handleStatusChange.bind(this);
   }
@@ -30,11 +31,14 @@ export default class Countdown extends React.Component {
           this.startTimer();
           break;
         default:
-          clearInterval(this.timer);
-          this.timer = undefined;
+          this.stopTimer();
           break;
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.stopTimer();
   }
 
   startTimer() {
@@ -48,6 +52,11 @@ export default class Countdown extends React.Component {
         this.handleStatusChange(STATUS.STOPPED);
       }
     }, 1000);
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
+    this.timer = undefined;
   }
 
   handleSetCountdown(seconds) {
