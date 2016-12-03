@@ -1,0 +1,28 @@
+[
+  {
+    "date": "yesterday",
+    "ranges": [
+      {
+        "from": 9,
+        "to": 12
+      },
+      {
+        "from": 13,
+        "to": 18
+      }
+    ]
+  },
+  {
+    "date": "today",
+    "ranges": [
+      {
+        "from": 8,
+        "to": 12
+      },
+      {
+        "from": 13,
+        "to": 17
+      }
+    ]
+  }
+]

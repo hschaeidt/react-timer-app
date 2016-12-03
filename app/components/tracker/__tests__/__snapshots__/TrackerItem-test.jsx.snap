@@ -1,0 +1,29 @@
+exports[`<TrackerItem /> renders correctly 1`] = `
+<div>
+  yesterday
+  <div>
+    <p>
+      Ranges:
+      <span>
+        From: 
+        9
+      </span>
+      <span>
+        To: 
+        12
+      </span>
+    </p>
+    <p>
+      Ranges:
+      <span>
+        From: 
+        13
+      </span>
+      <span>
+        To: 
+        18
+      </span>
+    </p>
+  </div>
+</div>
+`;
