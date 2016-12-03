@@ -1,12 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Countdown, { STATUS } from '../Countdown';
 
 jest.useFakeTimers();
 
 describe('<Countdown />', () => {
-  it('should exist', () => {
-    expect(Countdown).toBeDefined();
+  it('renders correctly', () => {
+    const tree = renderer.create(<Countdown />);
+    expect(tree).toMatchSnapshot();
   });
 
   describe('handleSetCountdown', () => {

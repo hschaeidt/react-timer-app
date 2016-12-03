@@ -4,10 +4,6 @@ import Controls from '../Controls';
 import { STATUS } from '../Countdown';
 
 describe('<Controls />', () => {
-  it('should exist', () => {
-    expect(Controls).toBeDefined();
-  });
-
   describe('render', () => {
     it('renders a pause button when started', () => {
       const spy = jest.fn();

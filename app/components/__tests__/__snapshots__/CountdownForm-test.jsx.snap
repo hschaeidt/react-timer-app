@@ -1,0 +1,15 @@
+exports[`<CountdownForm /> renders correctly 1`] = `
+<form
+  className="countdown-form"
+  onSubmit={[Function]}>
+  <input
+    onChange={[Function]}
+    placeholder="Enter time in seconds"
+    type="text"
+    value="" />
+  <button
+    className="button expanded">
+    Start
+  </button>
+</form>
+`;

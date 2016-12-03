@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Clock from '../Clock';
 
 describe('<Clock />', () => {
-  it('should exist', () => {
-    expect(Clock).toBeDefined();
+  it('renders correctly', () => {
+    const tree = renderer.create(<Clock totalSeconds={30} />);
+    expect(tree).toMatchSnapshot();
   });
 
   describe('render', () => {

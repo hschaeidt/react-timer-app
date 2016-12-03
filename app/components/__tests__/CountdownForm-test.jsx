@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import CountdownForm from '../CountdownForm';
 
 describe('<CountdownForm />', () => {
-  it('should exist', () => {
-    expect(CountdownForm).toBeDefined();
+  it('renders correctly', () => {
+    const spy = jest.fn();
+    const tree = renderer.create(<CountdownForm onSetCountdown={spy} />);
+    expect(tree).toMatchSnapshot();
   });
 
   it('should call onSetCountdown if valid seconds entered', () => {
