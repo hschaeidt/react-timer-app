@@ -42,5 +42,11 @@
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^1.0.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/app.jsx"
+    ]
   }
 }
