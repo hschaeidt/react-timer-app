@@ -10,12 +10,18 @@ describe('<Controls />', () => {
 
   describe('render', () => {
     it('renders a pause button when started', () => {
-      const tree = renderer.create(<Controls countdownStatus={STATUS.STARTED} />);
+      const spy = jest.fn();
+      const tree = renderer.create(
+        <Controls countdownStatus={STATUS.STARTED} onStatusChange={spy} />,
+      );
       expect(tree).toMatchSnapshot();
     });
 
-    it('renders a start button when stopped', () => {
-      const tree = renderer.create(<Controls countdownStatus={STATUS.STOPPED} />);
+    it('renders a start button when paused', () => {
+      const spy = jest.fn();
+      const tree = renderer.create(
+        <Controls countdownStatus={STATUS.PAUSED} onStatusChange={spy} />,
+      );
       expect(tree).toMatchSnapshot();
     });
   });
