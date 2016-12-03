@@ -24,10 +24,15 @@ describe('<Countdown />', () => {
 
     it('should never set count less than zero', () => {
       const countdown = shallow(<Countdown />).instance();
-      countdown.handleSetCountdown(10);
-
       jest.runAllTimers();
+      expect(countdown.state.count).toBe(0);
 
+      countdown.handleSetCountdown(0);
+      jest.runAllTimers();
+      expect(countdown.state.count).toBe(0);
+
+      countdown.handleSetCountdown(10);
+      jest.runAllTimers();
       expect(countdown.state.count).toBe(0);
     });
   });

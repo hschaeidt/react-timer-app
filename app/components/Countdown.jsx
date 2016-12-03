@@ -49,10 +49,12 @@ export default class Countdown extends React.Component {
   }
 
   handleSetCountdown(seconds) {
-    this.setState({
-      count: seconds,
-      status: STATUS.STARTED,
-    });
+    if (seconds > 0) {
+      this.setState({
+        count: seconds,
+        status: STATUS.STARTED,
+      });
+    }
   }
 
   render() {
