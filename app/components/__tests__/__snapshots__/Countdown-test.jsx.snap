@@ -1,5 +1,9 @@
 exports[`<Countdown /> renders correctly 1`] = `
 <div>
+  <h1
+    className="page-title">
+    Countdown App
+  </h1>
   <div
     className="clock">
     <span
