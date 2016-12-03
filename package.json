@@ -1,14 +1,16 @@
 {
-  "name": "boilerplate",
+  "name": "react-time-tracker",
   "version": "1.0.0",
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
-    "test": "node $NODE_DEBUG_OPTION ./node_modules/.bin/jest --runInBand",
-    "start": "NODE_ENV=development webpack-dev-server --content-base public/ --config webpack.dev.config.js",
-    "build": "NODE_ENV=production webpack -p --config webpack.prod.config.js"
+    "start": "NODE_ENV=development webpack-dev-server --content-base public/ --config config/webpack.dev.config.js",
+    "build": "NODE_ENV=production webpack -p --config config/webpack.prod.config.js",
+    "test": "NODE_ENV=test jest",
+    "test-debug": "NODE_ENV=test node $NODE_DEBUG_OPTION ./node_modules/.bin/jest --runInBand",
+    "test-coverage": "NODE_ENV=test jest --coverage"
   },
-  "author": "Andrew Mead",
+  "author": "Hendrik Schaeidt",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
