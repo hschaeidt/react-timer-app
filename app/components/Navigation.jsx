@@ -12,6 +12,9 @@ export default () => (
         <li>
           <Link to="/countdown" activeClassName="active-link">Countdown</Link>
         </li>
+        <li>
+          <Link to="/tracker" activeClassName="active-link">Tracker</Link>
+        </li>
       </ul>
     </div>
     <div className="top-bar-right">
