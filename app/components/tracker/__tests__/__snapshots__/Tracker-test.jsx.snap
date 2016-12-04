@@ -5,6 +5,16 @@ exports[`<Tracker /> renders correctly 1`] = `
     Time Tracker
   </h1>
   <div>
+    <label
+      htmlFor="input-show-completed">
+      <input
+        id="input-show-completed"
+        onChange={[Function]}
+        type="checkbox" />
+      Show completed days
+    </label>
+  </div>
+  <div>
     <div>
       Friday, December 2nd 2016
       <div>

@@ -1,0 +1,12 @@
+exports[`<TrackFilter /> renders correctly 1`] = `
+<div>
+  <label
+    htmlFor="input-show-completed">
+    <input
+      id="input-show-completed"
+      onChange={[Function]}
+      type="checkbox" />
+    Show completed days
+  </label>
+</div>
+`;

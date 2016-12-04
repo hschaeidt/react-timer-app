@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import TrackFilter from './TrackFilter';
 import TrackerList from './TrackerList';
 import TrackForm from './TrackForm';
 import tracksData from '../../fixtures/tracks.json';
@@ -10,9 +11,21 @@ export default class Tracker extends React.Component {
 
     this.state = {
       tracks: tracksData,
+      filter: {
+        showCompleted: false,
+      },
     };
 
+    this.handleFilter = this.handleFilter.bind(this);
     this.handleAddTrack = this.handleAddTrack.bind(this);
+  }
+
+  handleFilter(showCompleted) {
+    this.setState({
+      filter: {
+        showCompleted,
+      },
+    });
   }
 
   handleAddTrack(track) {
@@ -38,6 +51,7 @@ export default class Tracker extends React.Component {
     return (
       <div>
         <h1 className="page-title">Time Tracker</h1>
+        <TrackFilter onFilter={this.handleFilter} />
         <TrackerList tracks={tracks} />
         <TrackForm onAddTrack={this.handleAddTrack} />
       </div>
