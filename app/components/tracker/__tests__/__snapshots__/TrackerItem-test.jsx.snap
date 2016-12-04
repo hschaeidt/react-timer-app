@@ -1,3 +1,105 @@
+exports[`<TrackerItem /> render should be able to render without time ranges 1`] = `
+<div>
+  Saturday, December 3rd 2016
+  <div>
+    Time ranges:
+    <div>
+      No data yet. Maybe add some?
+    </div>
+  </div>
+  <div>
+    Total time tracked: 
+    0
+     hours 
+    0
+     minutes
+  </div>
+  <div
+    className="controls">
+    <button
+      className="button primary">
+      Add range
+    </button>
+    <button
+      className="button warning hollow"
+      id="lock-button"
+      onClick={[Function]}>
+      Lock
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<TrackerItem /> render should render with controls if not locked 1`] = `
+<div>
+  Saturday, December 3rd 2016
+  <div>
+    Time ranges:
+    <div>
+      from 
+      10:00 AM
+       to 
+      1:00 PM
+    </div>
+    <div>
+      from 
+      2:00 PM
+       to 
+      7:00 PM
+    </div>
+  </div>
+  <div>
+    Total time tracked: 
+    8
+     hours 
+    0
+     minutes
+  </div>
+  <div
+    className="controls">
+    <button
+      className="button primary">
+      Add range
+    </button>
+    <button
+      className="button warning hollow"
+      id="lock-button"
+      onClick={[Function]}>
+      Lock
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<TrackerItem /> render should render without controls if locked 1`] = `
+<div>
+  Friday, December 2nd 2016
+  <div>
+    Time ranges:
+    <div>
+      from 
+      8:57 AM
+       to 
+      1:01 PM
+    </div>
+    <div>
+      from 
+      2:00 PM
+       to 
+      6:00 PM
+    </div>
+  </div>
+  <div>
+    Total time tracked: 
+    8
+     hours 
+    4
+     minutes
+  </div>
+  <div />
+</div>
+`;
+
 exports[`<TrackerItem /> renders correctly 1`] = `
 <div>
   Friday, December 2nd 2016
@@ -23,5 +125,6 @@ exports[`<TrackerItem /> renders correctly 1`] = `
     4
      minutes
   </div>
+  <div />
 </div>
 `;

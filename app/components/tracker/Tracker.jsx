@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import uuid from 'node-uuid';
 import TrackFilter from './TrackFilter';
 import TrackerList from './TrackerList';
 import TrackForm from './TrackForm';
@@ -17,6 +17,7 @@ export default class Tracker extends React.Component {
     };
 
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleComplete = this.handleComplete.bind(this);
     this.handleAddTrack = this.handleAddTrack.bind(this);
   }
 
@@ -28,15 +29,27 @@ export default class Tracker extends React.Component {
     });
   }
 
+  handleComplete(id) {
+    const tracks = this.state.tracks.map((track) => {
+      if (id === track.id) {
+        return Object.assign({}, track, {
+          completed: true,
+        });
+      }
+
+      return track;
+    });
+
+    this.setState({ tracks });
+  }
+
   handleAddTrack(track) {
     const tracks = [
       ...this.state.tracks,
       {
+        id: uuid(),
         date: track,
-        ranges: [{
-          from: moment().toISOString(),
-          to: moment().add(1, 'hour').toISOString(),
-        }],
+        completed: false,
       },
     ];
 
@@ -52,7 +65,7 @@ export default class Tracker extends React.Component {
       <div>
         <h1 className="page-title">Time Tracker</h1>
         <TrackFilter onFilter={this.handleFilter} />
-        <TrackerList tracks={tracks} />
+        <TrackerList tracks={tracks} onComplete={this.handleComplete} />
         <TrackForm onAddTrack={this.handleAddTrack} />
       </div>
     );

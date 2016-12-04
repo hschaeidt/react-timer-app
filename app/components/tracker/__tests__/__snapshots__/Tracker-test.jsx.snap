@@ -39,6 +39,7 @@ exports[`<Tracker /> renders correctly 1`] = `
         4
          minutes
       </div>
+      <div />
     </div>
     <div>
       Saturday, December 3rd 2016
@@ -63,6 +64,48 @@ exports[`<Tracker /> renders correctly 1`] = `
          hours 
         0
          minutes
+      </div>
+      <div
+        className="controls">
+        <button
+          className="button primary">
+          Add range
+        </button>
+        <button
+          className="button warning hollow"
+          id="lock-button"
+          onClick={[Function]}>
+          Lock
+        </button>
+      </div>
+    </div>
+    <div>
+      Saturday, December 3rd 2016
+      <div>
+        Time ranges:
+        <div>
+          No data yet. Maybe add some?
+        </div>
+      </div>
+      <div>
+        Total time tracked: 
+        0
+         hours 
+        0
+         minutes
+      </div>
+      <div
+        className="controls">
+        <button
+          className="button primary">
+          Add range
+        </button>
+        <button
+          className="button warning hollow"
+          id="lock-button"
+          onClick={[Function]}>
+          Lock
+        </button>
       </div>
     </div>
   </div>

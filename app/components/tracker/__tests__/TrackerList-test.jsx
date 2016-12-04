@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import TrackerList from '../TrackerList';
 import TrackerItem from '../TrackerItem';
@@ -8,9 +8,10 @@ import tracks from '../../../fixtures/tracks.json';
 function setup() {
   const props = {
     tracks,
+    onComplete: jest.fn(),
   };
 
-  const wrapper = mount(<TrackerList {...props} />);
+  const wrapper = shallow(<TrackerList {...props} />);
   const tree = renderer.create(<TrackerList {...props} />);
 
   return {

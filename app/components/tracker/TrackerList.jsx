@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
-import TrackerItem, { propTypes as trackerItemProps } from './TrackerItem';
+import TrackerItem, { trackerItemProps } from './TrackerItem';
 
-const TrackerList = ({ tracks }) => {
+const TrackerList = ({ tracks, onComplete }) => {
   const renderTrackerItems = () => tracks.map((track, index) => (
-    <TrackerItem key={index} {...track} />
+    <TrackerItem key={index} {...track} onComplete={onComplete} />
   ));
 
   return (
@@ -17,6 +17,7 @@ TrackerList.propTypes = {
   tracks: PropTypes.arrayOf(
     PropTypes.shape(trackerItemProps),
   ).isRequired,
+  onComplete: PropTypes.func.isRequired,
 };
 
 export default TrackerList;
