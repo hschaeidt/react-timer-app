@@ -1,0 +1,13 @@
+exports[`<TrackForm /> renders correctly 1`] = `
+<form
+  onSubmit={[Function]}>
+  <input
+    onChange={[Function]}
+    type="date"
+    value="2016-12-04" />
+  <button
+    className="button expanded">
+    Check-in
+  </button>
+</form>
+`;
