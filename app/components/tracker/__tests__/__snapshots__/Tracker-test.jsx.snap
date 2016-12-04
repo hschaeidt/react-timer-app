@@ -6,57 +6,53 @@ exports[`<Tracker /> renders correctly 1`] = `
   </h1>
   <div>
     <div>
-      yesterday
+      Friday, December 2nd 2016
       <div>
-        <p>
-          Ranges:
-          <span>
-            From: 
-            9
-          </span>
-          <span>
-            To: 
-            12
-          </span>
-        </p>
-        <p>
-          Ranges:
-          <span>
-            From: 
-            13
-          </span>
-          <span>
-            To: 
-            18
-          </span>
-        </p>
+        Time ranges:
+        <div>
+          from 
+          8:57 AM
+           to 
+          1:01 PM
+        </div>
+        <div>
+          from 
+          2:00 PM
+           to 
+          6:00 PM
+        </div>
+      </div>
+      <div>
+        Total time tracked: 
+        8
+         hours 
+        4
+         minutes
       </div>
     </div>
     <div>
-      today
+      Saturday, December 3rd 2016
       <div>
-        <p>
-          Ranges:
-          <span>
-            From: 
-            8
-          </span>
-          <span>
-            To: 
-            12
-          </span>
-        </p>
-        <p>
-          Ranges:
-          <span>
-            From: 
-            13
-          </span>
-          <span>
-            To: 
-            17
-          </span>
-        </p>
+        Time ranges:
+        <div>
+          from 
+          10:00 AM
+           to 
+          1:00 PM
+        </div>
+        <div>
+          from 
+          2:00 PM
+           to 
+          7:00 PM
+        </div>
+      </div>
+      <div>
+        Total time tracked: 
+        8
+         hours 
+        0
+         minutes
       </div>
     </div>
   </div>
