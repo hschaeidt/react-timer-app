@@ -1,9 +1,18 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Controls from '../Controls';
 import { STATUS } from '../Countdown';
 
 describe('<Controls />', () => {
+  it('onStatusChange should return a callback with correct value', () => {
+    const spy = jest.fn();
+    const wrapper = shallow(<Controls countdownStatus={STATUS.STARTED} onStatusChange={spy} />);
+    const callback = wrapper.instance().onStatusChange(STATUS.STOPPED);
+    callback();
+    expect(spy).toHaveBeenCalledWith(STATUS.STOPPED);
+  });
+
   describe('render', () => {
     it('renders a pause button when started', () => {
       const spy = jest.fn();

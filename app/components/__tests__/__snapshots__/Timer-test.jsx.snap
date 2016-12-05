@@ -1,0 +1,28 @@
+exports[`<Timer /> renders correctly 1`] = `
+<div>
+  <h1
+    className="page-title">
+    Timer App
+  </h1>
+  <div
+    className="clock">
+    <span
+      className="clock-text">
+      00:00
+    </span>
+  </div>
+  <div
+    className="controls">
+    <button
+      className="button primary"
+      onClick={[Function]}>
+      Start
+    </button>
+    <button
+      className="button alert hollow"
+      onClick={[Function]}>
+      Clear
+    </button>
+  </div>
+</div>
+`;
