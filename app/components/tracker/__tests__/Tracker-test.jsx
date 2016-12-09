@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Tracker from '../Tracker';
 
+Date.now = jest.fn(() => 1480896000000);
+
 describe('<Tracker />', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<Tracker />);

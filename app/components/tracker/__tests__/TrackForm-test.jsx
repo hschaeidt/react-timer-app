@@ -3,6 +3,8 @@ import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import TrackForm from '../TrackForm';
 
+Date.now = jest.fn(() => 1480896000000);
+
 function setup() {
   const props = {
     onAddTrack: jest.fn(),
