@@ -23,10 +23,20 @@ exports[`<TrackerItem /> render should be able to render without time ranges 1`]
   </div>
   <div
     className="button-group">
-    <button
-      className="button primary">
-      Add range
-    </button>
+    <form
+      id="handle-new-range-form"
+      onSubmit={[Function]}>
+      <input
+        placeholder="--:--"
+        type="time" />
+      <input
+        placeholder="--:--"
+        type="time" />
+      <button
+        className="button primary">
+        Add range
+      </button>
+    </form>
     <button
       className="button alert hollow"
       id="lock-button"
@@ -70,10 +80,20 @@ exports[`<TrackerItem /> render should render with controls if not locked 1`] = 
   </div>
   <div
     className="button-group">
-    <button
-      className="button primary">
-      Add range
-    </button>
+    <form
+      id="handle-new-range-form"
+      onSubmit={[Function]}>
+      <input
+        placeholder="--:--"
+        type="time" />
+      <input
+        placeholder="--:--"
+        type="time" />
+      <button
+        className="button primary">
+        Add range
+      </button>
+    </form>
     <button
       className="button alert hollow"
       id="lock-button"

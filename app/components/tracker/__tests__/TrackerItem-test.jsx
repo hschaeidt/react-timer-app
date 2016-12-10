@@ -6,6 +6,7 @@ import tracks from '../../../fixtures/tracks.json';
 
 function setupWrapper(fixtureIndex) {
   const props = Object.assign({}, tracks[fixtureIndex], {
+    onNewRange: jest.fn(),
     onComplete: jest.fn(),
   });
 
@@ -19,6 +20,7 @@ function setupWrapper(fixtureIndex) {
 
 function setupTree(fixtureIndex) {
   const props = Object.assign({}, tracks[fixtureIndex], {
+    onNewRange: jest.fn(),
     onComplete: jest.fn(),
   });
 
@@ -42,6 +44,12 @@ describe('<TrackerItem />', () => {
     expect(props.onComplete).toHaveBeenCalledWith(props.id);
   });
 
+  it('should onNewRange prop on handling new range', () => {
+    const { wrapper, props } = setupWrapper(1);
+    wrapper.instance().handleNewRange('21:00', '22:00');
+    expect(props.onNewRange).toHaveBeenCalledWith(tracks[1].id, '21:00', '22:00');
+  });
+
   it('should update totalDuration when new range item added', () => {
     const { wrapper, props } = setupWrapper(1);
     const { ranges } = props;
@@ -51,8 +59,8 @@ describe('<TrackerItem />', () => {
       ranges: [
         ...ranges,
         {
-          from: '2016-12-03T19:00:00.106Z',
-          to: '2016-12-03T20:00:00.106Z',
+          from: '20:00',
+          to: '21:00',
         },
       ],
     });

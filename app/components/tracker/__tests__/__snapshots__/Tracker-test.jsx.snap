@@ -79,10 +79,20 @@ exports[`<Tracker /> renders correctly 1`] = `
       </div>
       <div
         className="button-group">
-        <button
-          className="button primary">
-          Add range
-        </button>
+        <form
+          id="handle-new-range-form"
+          onSubmit={[Function]}>
+          <input
+            placeholder="--:--"
+            type="time" />
+          <input
+            placeholder="--:--"
+            type="time" />
+          <button
+            className="button primary">
+            Add range
+          </button>
+        </form>
         <button
           className="button alert hollow"
           id="lock-button"
@@ -115,10 +125,20 @@ exports[`<Tracker /> renders correctly 1`] = `
       </div>
       <div
         className="button-group">
-        <button
-          className="button primary">
-          Add range
-        </button>
+        <form
+          id="handle-new-range-form"
+          onSubmit={[Function]}>
+          <input
+            placeholder="--:--"
+            type="time" />
+          <input
+            placeholder="--:--"
+            type="time" />
+          <button
+            className="button primary">
+            Add range
+          </button>
+        </form>
         <button
           className="button alert hollow"
           id="lock-button"

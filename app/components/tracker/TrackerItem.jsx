@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
+import ItemControls from './item/ItemControls';
 
 class TrackerItem extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class TrackerItem extends Component {
 
     this.calculateTotalDuration = this.calculateTotalDuration.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
+    this.handleNewRange = this.handleNewRange.bind(this);
   }
 
   componentDidMount() {
@@ -19,8 +21,10 @@ class TrackerItem extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.ranges instanceof Array &&
-      (prevProps.ranges.length !== this.props.ranges.length)
+      this.props.ranges instanceof Array && (
+        !(prevProps.ranges instanceof Array) ||
+        (prevProps.ranges.length !== this.props.ranges.length)
+      )
     ) {
       this.calculateTotalDuration();
     }
@@ -32,8 +36,8 @@ class TrackerItem extends Component {
 
     if (ranges instanceof Array) {
       ranges.forEach((range) => {
-        const to = moment(range.to);
-        const from = moment(range.from);
+        const to = moment(range.to, 'hh:mm');
+        const from = moment(range.from, 'hh:mm');
 
         totalDuration.add(moment.duration(to.diff(from)));
       });
@@ -50,6 +54,12 @@ class TrackerItem extends Component {
     this.props.onComplete(id);
   }
 
+  handleNewRange(from, to) {
+    const { id } = this.props;
+
+    this.props.onNewRange(id, from, to);
+  }
+
   render() {
     const { date, completed, ranges } = this.props;
     const { totalDuration } = this.state;
@@ -57,8 +67,8 @@ class TrackerItem extends Component {
     const renderRanges = () => {
       if (ranges instanceof Array) {
         return ranges.map((range, index) => {
-          const to = moment(range.to);
-          const from = moment(range.from);
+          const to = moment(`${date}${range.to}`, 'YYYY-MM-DDhh:mm');
+          const from = moment(`${date}${range.from}`, 'YYYY-MM-DDhh:mm');
 
           return (
             <div key={index}>
@@ -77,18 +87,7 @@ class TrackerItem extends Component {
 
     const renderControls = () => {
       if (!completed) {
-        return (
-          <div className="button-group">
-            <button className="button primary">Add range</button>
-            <button
-              id="lock-button"
-              className="button alert hollow"
-              onClick={this.handleComplete}
-            >
-              Lock
-            </button>
-          </div>
-        );
+        return <ItemControls onComplete={this.handleComplete} onNewRange={this.handleNewRange} />;
       }
 
       return (
@@ -125,6 +124,7 @@ export const trackerItemProps = {
 };
 
 TrackerItem.propTypes = Object.assign({}, trackerItemProps, {
+  onNewRange: PropTypes.func.isRequired,
   onComplete: PropTypes.func.isRequired,
 });
 

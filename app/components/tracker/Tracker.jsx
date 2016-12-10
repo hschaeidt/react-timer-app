@@ -19,6 +19,7 @@ export default class Tracker extends React.Component {
     this.handleFilter = this.handleFilter.bind(this);
     this.handleComplete = this.handleComplete.bind(this);
     this.handleAddTrack = this.handleAddTrack.bind(this);
+    this.handleNewRange = this.handleNewRange.bind(this);
   }
 
   handleFilter(showCompleted) {
@@ -58,6 +59,34 @@ export default class Tracker extends React.Component {
     });
   }
 
+  handleNewRange(id, from, to) {
+    const tracks = this.state.tracks.map((track) => {
+      if (id === track.id) {
+        let ranges = [];
+
+        if (track.ranges instanceof Array) {
+          ranges = track.ranges;
+        }
+
+        return Object.assign({}, track, {
+          ranges: [
+            ...ranges,
+            {
+              from,
+              to,
+            },
+          ],
+        });
+      }
+
+      return track;
+    });
+
+    this.setState({
+      tracks,
+    });
+  }
+
   render() {
     const { tracks } = this.state;
 
@@ -65,7 +94,11 @@ export default class Tracker extends React.Component {
       <div>
         <h1 className="page-title">Time Tracker</h1>
         <TrackFilter onFilter={this.handleFilter} />
-        <TrackerList tracks={tracks} onComplete={this.handleComplete} />
+        <TrackerList
+          tracks={tracks}
+          onComplete={this.handleComplete}
+          onNewRange={this.handleNewRange}
+        />
         <TrackForm onAddTrack={this.handleAddTrack} />
       </div>
     );

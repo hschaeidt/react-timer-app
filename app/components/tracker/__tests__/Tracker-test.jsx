@@ -31,4 +31,13 @@ describe('<Tracker />', () => {
     instance.handleAddTrack('2015-01-01');
     expect(instance.state.tracks.length).toBe(4);
   });
+
+  it('should add a new range to the track', () => {
+    const instance = shallow(<Tracker />).instance();
+    let track = instance.state.tracks[1];
+    expect(track.ranges.length).toBe(2);
+    instance.handleNewRange(track.id, '21:00', '22:00');
+    track = instance.state.tracks[1];
+    expect(track.ranges.length).toBe(3);
+  });
 });
