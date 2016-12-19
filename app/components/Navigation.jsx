@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, IndexLink } from 'react-router';
+import { h, Component } from 'preact';
+import { Router, Link } from 'preact-router';
 
 export default () => (
   <div className="top-bar">
@@ -7,13 +7,10 @@ export default () => (
       <ul className="menu">
         <li className="menu-text">Timer-App</li>
         <li>
-          <IndexLink to="/" activeClassName="active-link">Timer</IndexLink>
+          <Link href="/">Timer</Link>
         </li>
         <li>
-          <Link to="/countdown" activeClassName="active-link">Countdown</Link>
-        </li>
-        <li>
-          <Link to="/tracker" activeClassName="active-link">Tracker</Link>
+          <Link href="/countdown">Countdown</Link>
         </li>
       </ul>
     </div>

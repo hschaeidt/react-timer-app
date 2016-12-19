@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import Clock from './Clock';
 import CountdownForm from './CountdownForm';
 import Controls from './Controls';
@@ -9,7 +9,7 @@ export const STATUS = {
   PAUSED: 'paused',
 };
 
-export default class Countdown extends React.Component {
+export default class Countdown extends Component {
   constructor(props) {
     super(props);
 
