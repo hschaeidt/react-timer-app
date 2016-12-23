@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class Clock extends React.Component {
+export default class Clock extends Component {
   static formatSeconds(totalSeconds) {
     let seconds = `${totalSeconds % 60}`;
     let minutes = `${Math.floor(totalSeconds / 60)}`;
@@ -28,11 +28,3 @@ export default class Clock extends React.Component {
     );
   }
 }
-
-Clock.propTypes = {
-  totalSeconds: React.PropTypes.number,
-};
-
-Clock.defaultProps = {
-  totalSeconds: 0,
-};

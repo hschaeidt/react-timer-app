@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class CountdownForm extends React.Component {
+export default class CountdownForm extends Component {
   constructor(props) {
     super(props);
 
@@ -46,7 +46,3 @@ export default class CountdownForm extends React.Component {
     );
   }
 }
-
-CountdownForm.propTypes = {
-  onSetCountdown: React.PropTypes.func.isRequired,
-};

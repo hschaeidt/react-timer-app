@@ -1,11 +1,11 @@
 import React from 'react';
+import { h } from 'preact';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import Clock from '../Clock';
 
 describe('<Clock />', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Clock totalSeconds={30} />);
+    const tree = shallow(<Clock totalSeconds={30} />).getNodes();
     expect(tree).toMatchSnapshot();
   });
 

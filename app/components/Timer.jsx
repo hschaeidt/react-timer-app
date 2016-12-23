@@ -1,9 +1,9 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import Clock from './Clock';
 import Controls from './Controls';
 import { STATUS } from './Countdown';
 
-export default class Timer extends React.Component {
+export default class Timer extends Component {
   constructor(props) {
     super(props);
 

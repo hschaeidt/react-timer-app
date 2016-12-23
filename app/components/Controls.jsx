@@ -1,7 +1,7 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import { STATUS } from './Countdown';
 
-export default class Controls extends React.Component {
+export default class Controls extends Component {
   constructor(props) {
     super(props);
 
@@ -52,8 +52,3 @@ export default class Controls extends React.Component {
     );
   }
 }
-
-Controls.propTypes = {
-  countdownStatus: React.PropTypes.string.isRequired,
-  onStatusChange: React.PropTypes.func.isRequired,
-};
