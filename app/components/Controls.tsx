@@ -1,20 +1,25 @@
-import React from 'react';
+import * as React from 'react';
 import { STATUS } from './Countdown';
 
-export default class Controls extends React.Component {
-  constructor(props) {
+interface ControlsProps extends React.Props<any> {
+  countdownStatus: STATUS;
+  onStatusChange: (newState: STATUS) => void;
+}
+
+export default class Controls extends React.Component<ControlsProps, void> {
+  constructor(props: ControlsProps) {
     super(props);
 
     this.onStatusChange = this.onStatusChange.bind(this);
   }
 
-  onStatusChange(newStatus) {
+  onStatusChange(newStatus: STATUS): () => void {
     return () => {
       this.props.onStatusChange(newStatus);
     };
   }
 
-  render() {
+  render(): JSX.Element {
     const { countdownStatus } = this.props;
 
     const renderStartStopButton = () => {
@@ -52,8 +57,3 @@ export default class Controls extends React.Component {
     );
   }
 }
-
-Controls.propTypes = {
-  countdownStatus: React.PropTypes.string.isRequired,
-  onStatusChange: React.PropTypes.func.isRequired,
-};

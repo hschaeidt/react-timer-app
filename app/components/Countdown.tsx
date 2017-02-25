@@ -68,7 +68,7 @@ export default class Countdown extends React.Component<CountdownProps, Countdown
     this.timer = undefined;
   }
 
-  handleSetCountdown(seconds: number) {
+  handleSetCountdown(seconds: number): void {
     if (seconds > 0) {
       this.setState({
         count: seconds,
@@ -77,7 +77,7 @@ export default class Countdown extends React.Component<CountdownProps, Countdown
     }
   }
 
-  handleStatusChange(status: STATUS) {
+  handleStatusChange(status: STATUS): void {
     const state: CountdownState = { 
       status,
       count: this.state.count,
@@ -90,7 +90,7 @@ export default class Countdown extends React.Component<CountdownProps, Countdown
     this.setState(state);
   }
 
-  render() {
+  render(): JSX.Element {
     const { count, status } = this.state;
 
     const renderControlArea = () => {

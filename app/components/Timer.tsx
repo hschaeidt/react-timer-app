@@ -1,10 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 import Clock from './Clock';
 import Controls from './Controls';
 import { STATUS } from './Countdown';
 
-export default class Timer extends React.Component {
-  constructor(props) {
+interface TimerProps extends React.Props<any> {}
+interface TimerState {
+  count: number;
+  status: STATUS;
+}
+
+export default class Timer extends React.Component<TimerProps, TimerState>  {
+  private timer: number;
+
+  constructor(props: TimerProps) {
     super(props);
 
     this.state = {
@@ -17,7 +25,7 @@ export default class Timer extends React.Component {
     this.stopTimer = this.stopTimer.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: TimerProps, prevState: TimerState) {
     if (this.state.status !== prevState.status) {
       if (this.state.status === STATUS.STARTED) {
         this.startTimer();
@@ -31,20 +39,23 @@ export default class Timer extends React.Component {
     this.stopTimer();
   }
 
-  startTimer() {
+  startTimer(): void {
     this.timer = setInterval(() => {
       const count = this.state.count + 1;
       this.setState({ count });
     }, 1000);
   }
 
-  stopTimer() {
+  stopTimer(): void {
     clearInterval(this.timer);
     this.timer = undefined;
   }
 
-  handleStatusChange(status) {
-    const state = { status };
+  handleStatusChange(status: STATUS): void {
+    const state: TimerState = {
+      status,
+      count: this.state.count,
+    };
 
     if (status === STATUS.STOPPED) {
       state.count = 0;
@@ -53,7 +64,7 @@ export default class Timer extends React.Component {
     this.setState(state);
   }
 
-  render() {
+  render(): JSX.Element {
     const { count, status } = this.state;
 
     return (

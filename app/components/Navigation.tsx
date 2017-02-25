@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-export default () => (
+export default (): JSX.Element => (
   <div className="top-bar">
     <div className="top-bar-left">
       <ul className="menu">

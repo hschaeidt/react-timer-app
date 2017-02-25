@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Navigation from './Navigation';
 
-const Main = (props: React.Props<any>) => (
+const Main = (props: React.Props<any>): JSX.Element => (
   <div>
     <div>
       <div>

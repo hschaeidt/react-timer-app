@@ -1,7 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 
-export default class CountdownForm extends React.Component {
-  constructor(props) {
+interface CountdownFormProps {
+  onSetCountdown: (seconds: number) => void,
+}
+
+interface CountdownFormState {
+  seconds: string,
+}
+
+export default class CountdownForm extends React.Component<CountdownFormProps, CountdownFormState> {
+  constructor(props: CountdownFormProps) {
     super(props);
 
     this.state = {
@@ -12,7 +20,7 @@ export default class CountdownForm extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onSubmit(e) {
+  onSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     const strSeconds = this.state.seconds;
 
@@ -24,13 +32,13 @@ export default class CountdownForm extends React.Component {
     }
   }
 
-  onChange(e) {
+  onChange(e: React.FormEvent<HTMLInputElement>): void {
     this.setState({
-      seconds: e.target.value,
+      seconds: e.currentTarget.value,
     });
   }
 
-  render() {
+  render(): JSX.Element {
     const { seconds } = this.state;
 
     return (
@@ -46,7 +54,3 @@ export default class CountdownForm extends React.Component {
     );
   }
 }
-
-CountdownForm.propTypes = {
-  onSetCountdown: React.PropTypes.func.isRequired,
-};
