@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
-    './app/app.jsx',
+    './app/app.tsx',
   ],
   externals: {
     jquery: 'jQuery',
@@ -18,7 +18,7 @@ module.exports = {
     }),
   ],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, '..', 'public'),
     filename: 'bundle.js',
   },
   resolve: {
@@ -26,10 +26,14 @@ module.exports = {
     alias: {
       Main: 'app/components/Main.jsx',
     },
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     loaders: [
+      { 
+        loader: "awesome-typescript-loader",
+        test: /\.tsx?$/,
+      },
       {
         loader: 'babel-loader',
         test: /\.jsx?$/,
