@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import * as $ from 'jquery';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 import './styles/app.scss';
 import Main from './components/Main';

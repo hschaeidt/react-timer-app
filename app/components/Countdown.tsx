@@ -1,16 +1,25 @@
-import React from 'react';
+import * as React from 'react';
 import Clock from './Clock';
 import CountdownForm from './CountdownForm';
 import Controls from './Controls';
 
-export const STATUS = {
-  STARTED: 'started',
-  STOPPED: 'stopped',
-  PAUSED: 'paused',
-};
+export enum STATUS {
+  STARTED,
+  STOPPED,
+  PAUSED,
+}
 
-export default class Countdown extends React.Component {
-  constructor(props) {
+interface CountdownProps extends React.Props<any> {}
+
+interface CountdownState {
+  count: number,
+  status: STATUS,
+}
+
+export default class Countdown extends React.Component<CountdownProps, CountdownState> {
+  private timer: number;
+
+  constructor(props: CountdownProps) {
     super(props);
 
     this.state = {
@@ -24,7 +33,7 @@ export default class Countdown extends React.Component {
     this.handleStatusChange = this.handleStatusChange.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps: CountdownProps, prevState: CountdownState): void {
     if (this.state.status !== prevState.status) {
       switch (this.state.status) {
         case STATUS.STARTED:
@@ -37,11 +46,11 @@ export default class Countdown extends React.Component {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.stopTimer();
   }
 
-  startTimer() {
+  startTimer(): void {
     this.timer = setInterval(() => {
       const secondsRemaining = this.state.count - 1;
       this.setState({
@@ -54,12 +63,12 @@ export default class Countdown extends React.Component {
     }, 1000);
   }
 
-  stopTimer() {
+  stopTimer(): void {
     clearInterval(this.timer);
     this.timer = undefined;
   }
 
-  handleSetCountdown(seconds) {
+  handleSetCountdown(seconds: number) {
     if (seconds > 0) {
       this.setState({
         count: seconds,
@@ -68,8 +77,11 @@ export default class Countdown extends React.Component {
     }
   }
 
-  handleStatusChange(status) {
-    const state = { status };
+  handleStatusChange(status: STATUS) {
+    const state: CountdownState = { 
+      status,
+      count: this.state.count,
+    };
 
     if (status === STATUS.STOPPED) {
       state.count = 0;
