@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 import Countdown, { STATUS } from '../Countdown';
 
 jest.useFakeTimers();

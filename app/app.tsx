@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Countdown from './components/Countdown';
 import Timer from './components/Timer';
 import Tracker from './components/tracker/Tracker';
+import loadAssets from './assets';
 
 $(document).foundation();
 

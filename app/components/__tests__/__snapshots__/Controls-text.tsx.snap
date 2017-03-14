@@ -1,0 +1,31 @@
+exports[`<Controls /> render renders a pause button when started 1`] = `
+<div
+  className="controls">
+  <button
+    className="button secondary"
+    onClick={[Function]}>
+    Pause
+  </button>
+  <button
+    className="button alert hollow"
+    onClick={[Function]}>
+    Clear
+  </button>
+</div>
+`;
+
+exports[`<Controls /> render renders a start button when paused 1`] = `
+<div
+  className="controls">
+  <button
+    className="button primary"
+    onClick={[Function]}>
+    Start
+  </button>
+  <button
+    className="button alert hollow"
+    onClick={[Function]}>
+    Clear
+  </button>
+</div>
+`;

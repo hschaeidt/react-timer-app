@@ -1,0 +1,9 @@
+exports[`<Clock /> renders correctly 1`] = `
+<div
+  className="clock">
+  <span
+    className="clock-text">
+    00:30
+  </span>
+</div>
+`;

@@ -1,0 +1,28 @@
+exports[`<Countdown /> renders correctly 1`] = `
+<div>
+  <h1
+    className="page-title">
+    Countdown App
+  </h1>
+  <div
+    className="clock">
+    <span
+      className="clock-text">
+      00:00
+    </span>
+  </div>
+  <form
+    className="countdown-form"
+    onSubmit={[Function]}>
+    <input
+      onChange={[Function]}
+      placeholder="Enter time in seconds"
+      type="text"
+      value="" />
+    <button
+      className="button expanded">
+      Start
+    </button>
+  </form>
+</div>
+`;
