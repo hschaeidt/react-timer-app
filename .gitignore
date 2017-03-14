@@ -4,3 +4,5 @@ coverage/
 # IDE - Editors
 .idea
 .project
+
+npm-debug.log
